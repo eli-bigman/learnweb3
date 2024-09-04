@@ -23,187 +23,59 @@ To read more about using these font, please visit the Next.js documentation:
 - App Directory: https://nextjs.org/docs/app/building-your-application/optimizing/fonts
 - Pages Directory: https://nextjs.org/docs/pages/building-your-application/optimizing/fonts
 **/
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card"
-import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@/components/ui/table"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+
+import React from "react";
+import Header from "./Header";
+import Playground from "./Playground";
+import CodeDisplay from "./CodeDisplay";
+import AIResponse from "./AIResponse";
 
 export default function Chainlink() {
+  const codeResponse = ` 
+    // Import Web3.js
+    import Web3 from 'web3';
+
+    // Connect to Ethereum network
+    const web3 = new Web3('https://mainnet.infura.io/v3/YOUR_PROJECT_ID');
+
+    // Get current prices of cryptocurrencies
+    async function getCryptoPrices() {
+      const btcPrice = await web3.eth.getBalance('0x1BdE23A5d32Ad6A9CC02Ca1393b2CaB1f2f79Ec1');
+      const ethPrice = await web3.eth.getBalance('0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae');
+      const linkPrice = await web3.eth.getBalance('0x514910771af9ca656af840dff83e8264ecf986ca');
+
+      return {
+        btcPrice: web3.utils.fromWei(btcPrice, 'ether'),
+        ethPrice: web3.utils.fromWei(ethPrice, 'ether'),
+        linkPrice: web3.utils.fromWei(linkPrice, 'ether'),
+      };
+    }
+
+    // Handle user guesses
+    async function handleGuesses(btcGuess, ethGuess, linkGuess) {
+      const prices = await getCryptoPrices();
+
+      let score = 0;
+      if (Math.abs(btcGuess - prices.btcPrice) < 1000) score += 1;
+      if (Math.abs(ethGuess - prices.ethPrice) < 100) score += 1;
+      if (Math.abs(linkGuess - prices.linkPrice) < 5) score += 1;
+
+      return score;
+    }
+  `;
+
   return (
-    (<div className="flex flex-col min-h-screen bg-background text-foreground">
-      <header
-        className="sticky top-0 z-40 w-full border-b bg-background px-4 py-3 shadow-sm sm:px-6">
-        <div className="container mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <Link
-              href="#"
-              className="flex items-center gap-2 text-lg font-semibold"
-              prefetch={false}>
-              <LinkIcon className="h-6 w-6" />
-              <span>Chainlink Playground</span>
-            </Link>
-          </div>
-          <Button className="hidden sm:inline-flex">Connect to MetaMask/Wallet</Button>
-          <Button size="icon" className="sm:hidden">
-            <WalletIcon className="h-5 w-5" />
-            <span className="sr-only">Connect Wallet</span>
-          </Button>
+    <div className="flex flex-col min-h-screen bg-background text-foreground">
+      <Header />
+      <main className="container mx-auto grid grid-cols-1 gap-8 p-4 sm:grid-cols-2 lg:grid-cols-3 lg:p-8">
+        <div className="col-span-1 lg:col-span-2">
+          <Playground />
         </div>
-      </header>
-      <main
-        className="container mx-auto grid grid-cols-1 gap-8 p-4 sm:grid-cols-2 lg:grid-cols-3 lg:p-8">
-        <section className="col-span-1 lg:col-span-2">
-          <Card>
-            <CardHeader>
-              <CardTitle>Playground</CardTitle>
-              <CardDescription>Guess the price of cryptocurrencies using Web3.js</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Cryptocurrency</TableHead>
-                    <TableHead>Current Price</TableHead>
-                    <TableHead>Your Guess</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  <TableRow>
-                    <TableCell>Bitcoin (BTC)</TableCell>
-                    <TableCell>$50,000</TableCell>
-                    <TableCell>
-                      <Input type="number" placeholder="Enter your guess" />
-                    </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>Ethereum (ETH)</TableCell>
-                    <TableCell>$2,000</TableCell>
-                    <TableCell>
-                      <Input type="number" placeholder="Enter your guess" />
-                    </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>Chainlink (LINK)</TableCell>
-                    <TableCell>$25</TableCell>
-                    <TableCell>
-                      <Input type="number" placeholder="Enter your guess" />
-                    </TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
-              <div className="flex justify-end pt-4">
-                <Button>Submit Guesses</Button>
-              </div>
-            </CardContent>
-          </Card>
-        </section>
-        <section className="col-span-1 lg:col-span-1">
-          <Card>
-            <CardHeader>
-              <CardTitle>Code Display</CardTitle>
-              <CardDescription>View the code for the Playground app</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <Textarea
-                readOnly
-                rows={15}
-                value={`
-// Import Web3.js
-import Web3 from 'web3';
-
-// Connect to Ethereum network
-const web3 = new Web3('https://mainnet.infura.io/v3/YOUR_PROJECT_ID');
-
-// Get current prices of cryptocurrencies
-async function getCryptoPrices() {
-  const btcPrice = await web3.eth.getBalance('0x1BdE23A5d32Ad6A9CC02Ca1393b2CaB1f2f79Ec1');
-  const ethPrice = await web3.eth.getBalance('0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae');
-  const linkPrice = await web3.eth.getBalance('0x514910771af9ca656af840dff83e8264ecf986ca');
-
-  return {
-    btcPrice: web3.utils.fromWei(btcPrice, 'ether'),
-    ethPrice: web3.utils.fromWei(ethPrice, 'ether'),
-    linkPrice: web3.utils.fromWei(linkPrice, 'ether'),
-  };
-}
-
-// Handle user guesses
-async function handleGuesses(btcGuess, ethGuess, linkGuess) {
-  const prices = await getCryptoPrices();
-
-  let score = 0;
-  if (Math.abs(btcGuess - prices.btcPrice) < 1000) score += 1;
-  if (Math.abs(ethGuess - prices.ethPrice) < 100) score += 1;
-  if (Math.abs(linkGuess - prices.linkPrice) < 5) score += 1;
-
-  return score;
-}
-                `} />
-            </CardContent>
-          </Card>
-        </section>
-        <section className="col-span-1 lg:col-span-1">
-          <Card>
-            <CardHeader>
-              <CardTitle>AI Text File</CardTitle>
-              <CardDescription>Send a message to the AI and view the response</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                <div className="prose">
-                  <p>The AI has not responded yet. Please enter a message and click "Send" to get a response.</p>
-                </div>
-                <div className="flex gap-2">
-                  <Textarea placeholder="Enter your message" rows={3} />
-                  <Button>Send</Button>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </section>
+        <div className="col-span-1 lg:col-span-1 flex flex-col gap-8">
+          <CodeDisplay codeResponse={codeResponse} />
+          <AIResponse />
+        </div>
       </main>
-    </div>)
-  );
-}
-
-function LinkIcon(props) {
-  return (
-    (<svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round">
-      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
-      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
-    </svg>)
-  );
-}
-
-
-function WalletIcon(props) {
-  return (
-    (<svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round">
-      <path
-        d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1" />
-      <path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4" />
-    </svg>)
+    </div>
   );
 }

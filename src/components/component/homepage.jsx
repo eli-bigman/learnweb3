@@ -10,7 +10,7 @@ export default function Homepage() {
           <Link href="#" className="text-2xl font-bold" prefetch={false}>
             Learn Web3JS
           </Link>
-          <nav className="hidden md:flex items-center gap-4">
+          {/* <nav className="hidden md:flex items-center gap-4">
             <Link href="#" className="text-sm font-medium hover:underline" prefetch={false}>
               Plugins
             </Link>
@@ -20,8 +20,8 @@ export default function Homepage() {
             <Link href="#" className="text-sm font-medium hover:underline" prefetch={false}>
               Contact
             </Link>
-          </nav>
-          <Button>Get Started</Button>
+          </nav> */}
+          {/* <Button>Pla</Button> */}
         </div>
       </header>
       <main>
@@ -68,7 +68,7 @@ export default function Homepage() {
                     namespaces.
                   </p>
                   <Link
-                    href="#"
+                    href="chainlink"
                     className="inline-flex items-center gap-1 text-primary hover:underline"
                     prefetch={false}>
                     Enter Playground
@@ -106,7 +106,7 @@ export default function Homepage() {
                     Web3.js applications.
                   </p>
                   <Link
-                    href="#"
+                    href="chainlink"
                     className="inline-flex items-center gap-1 text-primary hover:underline"
                     prefetch={false}>
                     Enter Playground

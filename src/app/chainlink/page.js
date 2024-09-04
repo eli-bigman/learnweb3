@@ -1,5 +1,8 @@
+
+
+
 import React from 'react';
-import Chainlink from '@/components/component/chainlink';
+import Chainlink from '@/components/component/Chainlink';
 
 const ChainlinkPage = () => {
   return (
