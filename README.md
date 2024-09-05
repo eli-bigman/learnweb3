@@ -92,8 +92,11 @@ Understanding the architecture of Learn Web3JS helps in comprehending how variou
 ### High-Level Architecture Diagram
 
 +---------------------+
+
 |      User Interface |
+
 |  (Web Application)  |
+
 +----------+----------+                                                                                                                                                                   
            |
            v
