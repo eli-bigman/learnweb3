@@ -1,4 +1,4 @@
-### Learn Web3js
+# Learn Web3js
 Welcome to the Learn Web3JS documentation! This guide provides comprehensive information about our interactive learning platform designed to help developers master Web3.js through AI-powered tutorials and examples. Whether you're a beginner or an experienced developer, Learn Web3JS offers the tools and resources you need to effectively understand and implement Web3.js functionalities in real-world applications.
 
 ## Table of Contents
@@ -65,17 +65,17 @@ Learn Web3JS addresses the learning curve associated with Web3.js by providing a
 Learn Web3JS supports seamless integration with a variety of Web3.js plugins, enhancing the platform's functionality and providing learners with practical, real-world tools.
 
 Supported Plugins
-# Chainlink
+### Chainlink
 Purpose: Decentralized oracle network providing reliable, tamper-proof data feeds.
 Use Cases: Fetching real-time data, executing smart contracts based on external events.
 Integration: Step-by-step tutorials on setting up and using Chainlink within Web3.js projects.
 
-# ZKSync
+### ZKSync
 Purpose: Layer-2 scaling solution for Ethereum, enabling faster and cheaper transactions.
 Use Cases: Improving transaction throughput, reducing gas fees.
 Integration: Examples demonstrating how to implement ZKSync for scalable dApps.
 
-# Other Plugins (Future Support)
+### Other Plugins (Future Support)
 IPFS: Decentralized storage for files and data.
 The Graph: Decentralized indexing protocol for querying blockchain data.
 MetaMask: Browser extension for managing Ethereum wallets and interacting with dApps.
@@ -88,60 +88,61 @@ Troubleshooting Guides: Solutions to common integration issues.
 
 ## Architecture Flow
 Understanding the architecture of Learn Web3JS helps in comprehending how various components interact to provide a seamless learning experience.
-# High-Level Architecture Diagram
+
+### High-Level Architecture Diagram
 
 +---------------------+
 |      User Interface |
 |  (Web Application)  |
-+----------+----------+
++----------+----------+                                                                                                                                                                   
            |
            v
-+----------+----------+
++----------+--------------+
 |  Interactive Playground |
 |  & Code Editor          |
-+----------+----------+
++----------+--------------+                                                                                                                                                               
            |
            v
 +----------+----------+        +------------------+
 | AI-Powered Tutorials | <----> |  On-Chain AI     |
 | & Documentation      |        |  Assistant       |
-+----------+----------+        +------------------+
++----------+----------+        +------------------+                                                                                                                                       
            |
            v
 +----------+----------+
 | Plugin Integration   |
 | (Chainlink, ZKSync)  |
-+----------+----------+
++----------+----------+                                                                                                                                                                   
            |
            v
 +----------+----------+
 | Blockchain Interaction|
 | (Ethereum Network)   |
-+---------------------+
++---------------------+                                                                                                                                                                   
 
 ## Component Interactions
 
-# User Interface (UI):
+### User Interface (UI):
 The primary interface where users access tutorials, documentation, and the interactive playground.
 Responsive design for accessibility across devices.
 
-# Interactive Playground & Code Editor:
+### Interactive Playground & Code Editor:
 Real-time coding environment enabling users to write, test, and debug Web3.js code.
 Integrated with blockchain networks for deploying and interacting with smart contracts.
 
-# AI-Powered Tutorials & Documentation:
+### AI-Powered Tutorials & Documentation:
 Provides structured learning paths and in-depth resources.
 Adaptive content based on user progress and feedback.
 
-# On-Chain AI Assistant:
+### On-Chain AI Assistant:
 Embedded AI assistant that offers contextual help and answers within the platform.
 Utilizes blockchain data to provide accurate and relevant support.
 
-# Plugin Integration:
+### Plugin Integration:
 Facilitates the addition of plugins like Chainlink and ZKSync.
 Ensures compatibility and provides resources for plugin usage.
 
-# Blockchain Interaction:
+### Blockchain Interaction:
 Connects with Ethereum and other supported blockchains.
 Manages transactions, smart contract deployments, and data retrieval.
 
@@ -232,23 +233,23 @@ Version Control: Track changes and revert to previous code states as needed.
 Collaboration Tools: Share your playground sessions with peers for collaborative coding.
 Getting the Most Out of the Playground
 
-# Start a New Session:
+### Start a New Session:
 Click on the "New Playground" button to begin.
 Choose a template or start from scratch.
 
-# Write Your Code:
+### Write Your Code:
 Utilize the code editor to write Web3.js scripts.
 Access autocomplete and syntax highlighting for ease of coding.
 
-# Execute and Test:
+### Execute and Test:
 Run your code with a single click.
 View console outputs, transaction logs, and error messages.
 
-# Integrate Plugins:
+### Integrate Plugins:
 Select and add plugins from the plugin library.
 Follow guided steps to incorporate additional functionalities.
 
-# Save and Share:
+### Save and Share:
 Save your playground sessions for future reference.
 Share links with others to showcase your work or collaborate.
 AI Assistant Features
@@ -276,11 +277,11 @@ Follow Recommendations:
 Implement the suggestions provided to enhance your projects and learning.
 Example Interactions
 
-# Error Resolution:
+### Error Resolution:
 User: "I'm getting a TypeError when trying to send a transaction. How do I fix it?"
 AI Assistant: "The TypeError might be due to incorrect parameters. Ensure you're passing a valid from address and sufficient gas limit. Here's an example..."
 
-# Plugin Integration:
+### Plugin Integration:
 User: "How do I integrate Chainlink with my smart contract?"
 AI Assistant: "To integrate Chainlink, follow these steps: 1. Install the Chainlink library... 2. Import the necessary contracts..."
 Support and Community
