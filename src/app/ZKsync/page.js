@@ -1,10 +1,12 @@
+import React from 'react';
 
+const ZksyncPage = () => {
+  return (
+    <div>
+      <p>this is the zksync page</p>
+    </div>
+  );
+};
 
-export default function() {
+export default ZksyncPage;
 
-    return (
-        <div>
-            <h1>swisstronik</h1>
-        </div>
-    )
-}
