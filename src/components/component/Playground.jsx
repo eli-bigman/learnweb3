@@ -79,7 +79,7 @@ export default function ChainlinkGame() {
     <section className="col-span-1 lg:col-span-2">
       <Card>
         <CardHeader>
-          <CardTitle>Playground</CardTitle>
+          <CardTitle>Playground (Chainlink Plugin)</CardTitle>
           <CardDescription>Guess the price of cryptocurrencies using Web3.js</CardDescription>
         </CardHeader>
         <CardContent>

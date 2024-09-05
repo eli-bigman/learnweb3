@@ -1,15 +1,13 @@
-// import logo from "./logo.svg";
-import "./App.css";
-// import modules
+'use client'
 import { Web3 } from "web3";
 import { ORAPlugin, Chain, Models } from "@ora-io/web3-plugin-ora";
 
-const MODEL = Models.OPENLM;
+const MODEL = Models.LLMA2;
 const PROMPT = "As an expert in web3js explain web3 rpc:";
 
 function App() {
   // initialize provider (RPC endpoint or injected provider)
-  const web3 = new Web3('https://ethereum-rpc.publicnode.com');
+  const web3 = new Web3();
 
   // register plugin
   web3.registerPlugin(new ORAPlugin(Chain.SEPOLIA));
@@ -43,8 +41,7 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      <header >
         <button onClick={usePlugin}>generate AI</button>
         <button onClick={fetchResult}>fetch result</button>
       </header>

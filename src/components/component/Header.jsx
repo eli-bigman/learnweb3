@@ -38,7 +38,7 @@ export default function Header() {
         <div className="flex items-center gap-4">
           <Link href="/" className="flex items-center gap-2 text-lg font-semibold" prefetch={false}>
             <LinkIcon className="h-6 w-6" />
-            <span>Chainlink Playground</span>
+            <span>Home</span>
           </Link>
         </div>
         {account ? (
