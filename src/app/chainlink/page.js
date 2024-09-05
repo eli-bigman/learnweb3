@@ -2,7 +2,7 @@
 
 
 import React from 'react';
-import Chainlink from '@/components/component/Chainlink';
+import Chainlink from '@/components/component/chainlink';
 import Sidebar from '@/components/component/Sidebar';
 
 const ChainlinkPage = () => {
