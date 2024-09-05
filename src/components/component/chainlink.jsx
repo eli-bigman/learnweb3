@@ -1,8 +1,8 @@
 import React from "react";
-import Header from "./Header";
-import Playground from "./Playground";
-import CodeDisplay from "./CodeDisplay";
-import AIResponse from "./AIResponse";
+import Header from "@/components/component/Header";
+import Playground from "@/components/component/Playground";
+import CodeDisplay from "@/components/component/CodeDisplay";
+import AIResponse from "@/components/component/AIResponse";
 
 export default function Chainlink() {
   const codeResponse = ` 
