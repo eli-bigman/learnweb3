@@ -2,7 +2,7 @@
 import { Web3 } from "web3";
 import { ORAPlugin, Chain, Models } from "@ora-io/web3-plugin-ora";
 
-const MODEL = Models.LLMA2;
+const MODEL = Models.LLAMA2;
 const PROMPT = "As an expert in web3js explain web3 rpc:";
 
 function App() {
