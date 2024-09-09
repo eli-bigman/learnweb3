@@ -7,7 +7,7 @@ import { Web3 } from "web3";
 import { ORAPlugin, Chain, Models } from "@ora-io/web3-plugin-ora";
 
 // Define the AI model and prompt prefix
-const MODEL = Models.OPENLM;
+const MODEL = Models.LLAMA2;
 const PROMPT_PREFIX = "as an expert in web3js chainlink plugin explain: ";
 
 export default function AIResponse() {
@@ -18,7 +18,7 @@ export default function AIResponse() {
   const [waiting, setWaiting] = useState(false);
 
   // Initialize the Web3 provider (RPC endpoint or injected provider)
-  const web3 = new Web3('https://singapore.rpc.blxrbdn.com');
+  const web3 = new Web3(window.ethereum);
 
   // Register the ORA plugin with the specified chain
   web3.registerPlugin(new ORAPlugin(Chain.SEPOLIA));
