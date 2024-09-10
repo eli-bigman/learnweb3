@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
@@ -11,11 +11,12 @@ const MODEL = Models.LLAMA2;
 const PROMPT_PREFIX = "as an expert in web3js chainlink plugin explain: ";
 
 export default function AIResponse() {
-  // State variables to manage user input, AI response, loading state, and waiting state
+  // State variables to manage user input, AI response, loading state, waiting state, and countdown
   const [message, setMessage] = useState("");
   const [response, setResponse] = useState("");
   const [loading, setLoading] = useState(false);
   const [waiting, setWaiting] = useState(false);
+  const [countdown, setCountdown] = useState(30);
 
   // Initialize the Web3 provider (RPC endpoint or injected provider)
   const web3 = new Web3(window.ethereum);
@@ -41,12 +42,11 @@ export default function AIResponse() {
       const receipt = await web3.ora.calculateAIResult(accounts[0], MODEL, fullPrompt, estimateFee);
       console.log(receipt.transactionHash);
 
-      // Set the response and wait for 30 seconds before fetching the result
-      setResponse("Transaction sent. Waiting 30 seconds before fetching the result...");
+      // Set the response and start the countdown
+      setResponse("Transaction sent. Please wait 30 seconds before fetching the result...");
       setWaiting(true);
-      setTimeout(async () => {
-        await fetchResult(fullPrompt);
-      }, 30000);
+      setLoading(false);
+      setCountdown(30);
     } catch (error) {
       console.error("Error in handleSend:", error);
       setResponse("Failed to send transaction. Please try again later.");
@@ -55,9 +55,11 @@ export default function AIResponse() {
   };
 
   // Function to fetch the AI result
-  const fetchResult = async (fullPrompt) => {
+  const fetchResult = async () => {
+    setLoading(true);
     try {
       // Fetch the AI result using the full prompt
+      const fullPrompt = PROMPT_PREFIX + message;
       const result = await web3.ora.getAIResult(MODEL, fullPrompt);
       console.log(result);
       setResponse(result);
@@ -69,6 +71,14 @@ export default function AIResponse() {
       setWaiting(false);
     }
   };
+
+  // Countdown effect
+  useEffect(() => {
+    if (waiting && countdown > 0) {
+      const timer = setTimeout(() => setCountdown(countdown - 1), 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [waiting, countdown]);
 
   return (
     <section className="col-span-1 lg:col-span-1">
@@ -92,8 +102,8 @@ export default function AIResponse() {
               <Button onClick={handleSend} disabled={loading || waiting}>
                 {loading ? "Processing..." : "Send"}
               </Button>
-              <Button onClick={() => fetchResult(PROMPT_PREFIX + message)} disabled={loading || !waiting}>
-                {waiting ? "Waiting..." : "Fetch Result"}
+              <Button onClick={fetchResult} disabled={loading || countdown > 0}>
+                {waiting ? `Fetch Result (${countdown}s)` : "Fetch Result"}
               </Button>
             </div>
           </div>
