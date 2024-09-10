@@ -1,14 +1,12 @@
-
-
-
 import React from 'react';
 import Chainlink from '@/components/component/chainlink';
 import Sidebar from '@/components/component/Sidebar';
 
+
 const ChainlinkPage = () => {
   return (
     <div>
-      {/* <Sidebar /> */}
+      <Sidebar />
       <Chainlink />
     </div>
   );

@@ -8,9 +8,8 @@ import { ORAPlugin, Chain, Models } from "@ora-io/web3-plugin-ora";
 
 // Define the AI model and prompt prefix
 const MODEL = Models.LLAMA2;
-const PROMPT_PREFIX = "as an expert in web3js chainlink plugin explain: ";
 
-export default function AIResponse() {
+export default function AIResponse(promptPrefix) {
   // State variables to manage user input, AI response, loading state, waiting state, and countdown
   const [message, setMessage] = useState("");
   const [response, setResponse] = useState("");
@@ -38,7 +37,7 @@ export default function AIResponse() {
       console.log("accounts connected:", accounts);
 
       // Send the transaction with the full prompt (prefix + user message)
-      const fullPrompt = PROMPT_PREFIX + message;
+      const fullPrompt = promptPrefix + message;
       const receipt = await web3.ora.calculateAIResult(accounts[0], MODEL, fullPrompt, estimateFee);
       console.log(receipt.transactionHash);
 
@@ -49,7 +48,7 @@ export default function AIResponse() {
       setCountdown(30);
     } catch (error) {
       console.error("Error in handleSend:", error);
-      setResponse("Failed to send transaction. Please try again later.");
+      setResponse("Failed to send transaction, ensure you are on SEPOLIA. Please try again.");
       setLoading(false);
     }
   };
@@ -59,7 +58,7 @@ export default function AIResponse() {
     setLoading(true);
     try {
       // Fetch the AI result using the full prompt
-      const fullPrompt = PROMPT_PREFIX + message;
+      const fullPrompt = promptPrefix + message;
       const result = await web3.ora.getAIResult(MODEL, fullPrompt);
       console.log(result);
       setResponse(result);

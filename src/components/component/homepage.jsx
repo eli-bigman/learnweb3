@@ -11,18 +11,6 @@ export default function Homepage() {
           <Link href="#" className="text-2xl font-bold" prefetch={false}>
             Learn Web3JS
           </Link>
-          {/* <nav className="hidden md:flex items-center gap-4">
-            <Link href="#" className="text-sm font-medium hover:underline" prefetch={false}>
-              Plugins
-            </Link>
-            <Link href="#" className="text-sm font-medium hover:underline" prefetch={false}>
-              About
-            </Link>
-            <Link href="#" className="text-sm font-medium hover:underline" prefetch={false}>
-              Contact
-            </Link>
-          </nav> */}
-          {/* <Button>Pla</Button> */}
         </div>
       </header>
       <main>
@@ -32,12 +20,12 @@ export default function Homepage() {
               <h1 className="text-4xl font-bold tracking-tight">
                 Master Web3.js with our AI-powered tutorials
               </h1>
-              <p className="text-muted-foreground text-lg">
+              <p className="text-muted-foreground text-2xl">
                 Learn how to use the most popular Web3.js plugins with the help
                 of an on-chain AI assistant.
               </p>
               <div className="flex gap-2">
-                <Link href="chainlink" passHref>
+                <Link href="namespace" passHref>
                   <Button as="a">Enter Playground</Button>
                 </Link>
               </div>
@@ -66,7 +54,7 @@ export default function Homepage() {
               </p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* <Card>
+              <Card>
                 <CardContent className="p-6 space-y-4">
                   <div className="flex items-center gap-2">
                     <NavigationIcon className="w-8 h-8 text-primary" />
@@ -77,7 +65,7 @@ export default function Homepage() {
                     namespaces.
                   </p>
                   <Link
-                    href="chainlink"
+                    href="namespace"
                     className="inline-flex items-center gap-1 text-primary hover:underline"
                     prefetch={false}>
                     Enter Playground
@@ -85,7 +73,7 @@ export default function Homepage() {
                   </Link>
                 </CardContent>
               </Card>
-              <Card>
+              {/* <Card>
                 <CardContent className="p-6 space-y-4">
                   <div className="flex items-center gap-2">
                     <PhoneCallIcon className="w-8 h-8 text-primary" />
@@ -118,14 +106,14 @@ export default function Homepage() {
                   <Link
                     href="chainlink"
                     className="inline-flex items-center gap-1 text-primary hover:underline"
-                    prefetch={false}
+                    prefetch={true}
                   >
                     Enter Playground
                     <ArrowRightIcon className="w-4 h-4" />
                   </Link>
                 </CardContent>
               </Card>
-              {/* <Card>
+              <Card>
                 <CardContent className="p-6 space-y-4">
                   <div className="flex items-center gap-2">
                     <FolderSyncIcon className="w-8 h-8 text-primary" />
@@ -162,7 +150,7 @@ export default function Homepage() {
                     <ArrowRightIcon className="w-4 h-4" />
                   </Link>
                 </CardContent>
-              </Card> */}
+              </Card>
             </div>
           </div>
         </section>
@@ -324,3 +312,5 @@ function SwissFrancIcon(props) {
     </svg>
   );
 }
+
+

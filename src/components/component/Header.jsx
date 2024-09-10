@@ -33,11 +33,11 @@ export default function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b bg-background px-4 py-3 shadow-sm sm:px-6">
+    <header className="sticky top-0 z-40 w-full border-b bg-background px-2 py-3 shadow-sm sm:px-4">
       <div className="container mx-auto flex items-center justify-between">
         <div className="flex items-center gap-4">
           <Link href="/" className="flex items-center gap-2 text-lg font-semibold" prefetch={false}>
-            <LinkIcon className="h-6 w-6" />
+            <HomeIcon className="h-6 w-6" />
             <span>Home</span>
           </Link>
         </div>
@@ -51,11 +51,13 @@ export default function Header() {
   );
 }
 
-function LinkIcon(props) {
+function HomeIcon(props) {
   return (
     <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
-      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+      <path d="M3 9l9-7 9 7" />
+      <path d="M9 22V12h6v10" />
+      <path d="M21 22V9a2 2 0 0 0-2-2h-3" />
+      <path d="M3 22V9a2 2 0 0 1 2-2h3" />
     </svg>
   );
 }

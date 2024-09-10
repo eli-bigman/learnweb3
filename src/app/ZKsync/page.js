@@ -1,9 +1,14 @@
 import React from 'react';
+import Sidebar from '@/components/component/Sidebar';
+import Header from "@/components/component/Header";
+import Zksync from "@/components/component/zksync";
 
 const ZksyncPage = () => {
   return (
     <div>
-      <p>this is the zksync page</p>
+      <Header/>
+      <Sidebar/>
+      <Zksync/>
     </div>
   );
 };

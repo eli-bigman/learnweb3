@@ -1,11 +1,15 @@
 import React from 'react';
+import Sidebar from '@/components/component/Sidebar';
+import Header from "@/components/component/Header";
+import Namespace from "@/components/component/namespace"
 
 const namespacePage = () => {
   return (
-    <div>
-      <p>this is the namespace page</p>
-     
-    </div>
+    <>
+        <Header/>
+        <Sidebar />
+        <Namespace/>
+    </>
   );
 };
 
