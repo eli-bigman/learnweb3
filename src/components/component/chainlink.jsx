@@ -101,7 +101,7 @@ export default function ChainlinkGame() {
     <div className="flex flex-col min-h-screen bg-background text-foreground">
       <Header />
       <main className="container mx-auto grid grid-cols-1 gap-8 p-4 sm:grid-cols-2 lg:grid-cols-3 lg:p-8">
-        <div className="col-span-1 lg:col-span-2">
+        <div className="col-span-1 lg:col-span-2 pl-5">
           <Playground />
         </div>
         <div className="col-span-1 lg:col-span-1 flex flex-col gap-8">
