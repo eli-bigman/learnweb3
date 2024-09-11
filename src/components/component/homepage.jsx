@@ -125,7 +125,7 @@ export default function Homepage() {
                     Web3.js.
                   </p>
                   <Link
-                    href="/zksync"
+                    href="zksyncpage"
                     className="inline-flex items-center gap-1 text-primary hover:underline"
                     prefetch={true}>
                     Enter Playground
