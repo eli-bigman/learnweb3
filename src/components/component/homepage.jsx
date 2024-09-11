@@ -66,7 +66,7 @@ export default function Homepage() {
                     namespaces.
                   </p>
                   <Link
-                    href="zksync"
+                    href="namespace"
                     className="inline-flex items-center gap-1 text-primary hover:underline"
                     prefetch={true}>
                     Enter Playground
@@ -125,7 +125,7 @@ export default function Homepage() {
                     Web3.js.
                   </p>
                   <Link
-                    href="zksync"
+                    href="/zksync"
                     className="inline-flex items-center gap-1 text-primary hover:underline"
                     prefetch={true}>
                     Enter Playground
