@@ -18,10 +18,20 @@ export default function AIResponse(promptPrefix) {
   const [countdown, setCountdown] = useState(30);
 
   // Initialize the Web3 provider (RPC endpoint or injected provider)
-  const web3 = new Web3(window.ethereum);
+  const [web3, setWeb3] = useState(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.ethereum) {
+      const web3Instance = new Web3(window.ethereum);
+      web3Instance.registerPlugin(new ORAPlugin(Chain.SEPOLIA));
+      setWeb3(web3Instance);
+    } else {
+      console.error("No Ethereum provider found. Install MetaMask.");
+    }
+  }, []);
 
   // Register the ORA plugin with the specified chain
-  web3.registerPlugin(new ORAPlugin(Chain.SEPOLIA));
+  //web3.registerPlugin(new ORAPlugin(Chain.SEPOLIA));
 
   // Function to handle sending the message to the ORA AI
   const handleSend = async () => {
