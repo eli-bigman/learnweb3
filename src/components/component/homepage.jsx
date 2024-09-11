@@ -66,7 +66,7 @@ export default function Homepage() {
                     namespaces.
                   </p>
                   <Link
-                    href="namespace"
+                    href="zksync"
                     className="inline-flex items-center gap-1 text-primary hover:underline"
                     prefetch={true}>
                     Enter Playground
