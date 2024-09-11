@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Turret_Road } from "next/font/google";
 
 
 export default function Homepage() {
@@ -67,7 +68,7 @@ export default function Homepage() {
                   <Link
                     href="namespace"
                     className="inline-flex items-center gap-1 text-primary hover:underline"
-                    prefetch={false}>
+                    prefetch={true}>
                     Enter Playground
                     <ArrowRightIcon className="w-4 h-4" />
                   </Link>
@@ -124,9 +125,9 @@ export default function Homepage() {
                     Web3.js.
                   </p>
                   <Link
-                    href="#"
+                    href="zksync"
                     className="inline-flex items-center gap-1 text-primary hover:underline"
-                    prefetch={false}>
+                    prefetch={true}>
                     Enter Playground
                     <ArrowRightIcon className="w-4 h-4" />
                   </Link>
@@ -143,9 +144,9 @@ export default function Homepage() {
                     Web3.js.
                   </p>
                   <Link
-                    href="#"
+                    href="swisstronik"
                     className="inline-flex items-center gap-1 text-primary hover:underline"
-                    prefetch={false}>
+                    prefetch={true}>
                     Enter Playground
                     <ArrowRightIcon className="w-4 h-4" />
                   </Link>

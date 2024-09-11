@@ -5,7 +5,30 @@ import AIResponse from "@/components/component/AIResponse";
 
 export default function Namespace() {
   const codeResponse = ` 
-    code
+    // import web3 and zksync plugin
+import { Web3 } from "web3";
+import { ZKsyncPlugin, ZKsyncWallet } from "web3-plugin-zksync";
+
+// initialize RPC endpoint
+const web3 = new Web3();
+
+// register plugin
+web3.registerPlugin(new ZKsyncPlugin("https://sepolia.era.zksync.dev"));
+
+// using the plugin
+async function main() {
+  // initialize a wallet
+
+  const result = await web3.ZKsync.rpc.getRawBlockTransactions(300);
+  // console.log(result);
+
+  // const result = await web3.ZKsync.rpc.getTestnetPaymasterAddress()
+  //const result = await web3.ZKsync.rpc.getTransactionDetails("0x394bdb2f028bf11adee1f7fa52936c1ce967c878f265420e182190c4faea686d")
+  console.log(result);
+}
+
+main();
+
   `;
 
 

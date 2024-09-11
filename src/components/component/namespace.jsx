@@ -38,7 +38,7 @@ main();
         </div>
         <div className="col-span-1 lg:col-span-1 flex flex-col gap-8">
           <CodeDisplay codeResponse={codeResponse} />
-          <AIResponse promptPrefix={prompt}/>
+          <AIResponse promptPrefix={codeResponse.toLowerCase()}/>
         </div>
       </main>
     </div>

@@ -28,7 +28,7 @@ async function main() {
   const decimals = await myContract.methods.decimals().call();
 
   console.log(name);
-  console.log(totalS);
+  console.log(totalSupply);
   console.log(decimals);
 }
 
@@ -47,7 +47,7 @@ main();
         </div>
         <div className="col-span-1 lg:col-span-1 flex flex-col gap-8">
           <CodeDisplay codeResponse={codeResponse} />
-          <AIResponse promptPrefix={codeResponse}/>
+          <AIResponse promptPrefix={prompt}/>
         </div>
       </main>
     </div>
