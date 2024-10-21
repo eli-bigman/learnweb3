@@ -1,8 +1,10 @@
+"use client"
 import React from "react";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
+import Codeblock  from "@/components/component/CodeBlock";
 
-export default function CodeDisplay({ codeResponse }) {
+export default function CodeDisplay({ code }) {
   return (
     <section className="col-span-1 lg:col-span-1">
       <Card>
@@ -11,11 +13,13 @@ export default function CodeDisplay({ codeResponse }) {
           <CardDescription>View the code for the Playground app</CardDescription>
         </CardHeader>
         <CardContent>
-          <Textarea
+          {/* <Textarea
             readOnly
             rows={15}
-            value={codeResponse}
-          />
+            value={code}
+          /> */}
+
+          <Codeblock code={code} />
         </CardContent>
       </Card>
     </section>
